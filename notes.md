@@ -67,10 +67,10 @@ Cet objet a donc la responsabilité de gérer la requête et de retourner une r�
 
  En "langage" HTTP, voici l'équivalent de la requête d'un utilisateur qui accéderait au site d'OpenClassrooms :
 
-``GET / HTTP/1.1`` : contient la méthode HTTP (ici "GET") ainsi que l’URL (ici "/")
-``Host: marie-helenerots.com`` : hôte est marie-helenerots.com
-``Accept: text/html`` : contient le type de contenu attendu, ici du HTML
-``User-Agent: Mozilla/5.0 (Macintosh)`` : informe le serveur du navigateur utilisé (ici, Mozilla Firefox sur Mac OSX).
+- ``GET / HTTP/1.1`` : contient la méthode HTTP (ici "GET") ainsi que l’URL (ici "/")
+- ``Host: marie-helenerots.com`` : hôte est marie-helenerots.com
+- ``Accept: text/html`` : contient le type de contenu attendu, ici du HTML
+- ``User-Agent: Mozilla/5.0 (Macintosh)`` : informe le serveur du navigateur utilisé (ici, Mozilla Firefox sur Mac OSX).
 
 Il existe plusieurs méthodes HTTP pour accéder à une ressource, voici les plus importantes : **GET**, **POST**, **PUT** et **DELETE**.
 
@@ -78,11 +78,11 @@ Il existe plusieurs méthodes HTTP pour accéder à une ressource, voici les plu
 Une fois que le serveur sait exactement quelle ressource l'utilisateur/client souhaite et sous quelle forme, il peut retourner ce résultat sous forme de réponse HTTP.
 
 
-``HTTP/1.1 200 OK`` : indique le code de statut HTTP
-``Date: Sat, 28 Jul 2018 21:05:05 GMT``
-``Server: cloudfare``
-``Content-Type: text/html``
-``<html>
+- ``HTTP/1.1 200 OK`` : indique le code de statut HTTP
+- ``Date: Sat, 28 Jul 2018 21:05:05 GMT``
+- ``Server: cloudfare``
+- ``Content-Type: text/html``
+- ``<html>
  <!-- ... HTML de la page d'accueil -->
 </html>``
 
@@ -110,10 +110,10 @@ echo '</html>'
 
 Ce "serveur" PHP retournerait la réponse HTTP suivante :
 
-``Date: Sat, 28 Jul 2018 02:14:33 GMT``
-``Server: Apache/2.2.17 (Unix)``
-``Content-Type: text/html``
-``<html>
+- ``Date: Sat, 28 Jul 2018 02:14:33 GMT``
+- ``Server: Apache/2.2.17 (Unix)``
+- ``Content-Type: text/html``
+- ``<html>
 <body>Bonjour Zozor</body>
 </html>``
 
