@@ -1,6 +1,6 @@
-#Cours de Symfony en autodidacte
+# Cours de Symfony en autodidacte
 
-##Commençons par commencer
+## Commençons par commencer
 
 **Le protocole http** = langage de com entre client et serveur sur le web.
 
@@ -11,7 +11,7 @@
 Permet de construire une page HTML en fonction de la requête de l'utilisateur
 
 
-###Symfony
+### Symfony
 
 **Le composant HttpFoundation**
 - Request
@@ -27,7 +27,7 @@ Construit une adresse Http valide et la retourne à l'utilisateur
 >permet de définir qu'une page n'a pas été trouvée
 
 
-###Comment ça se passe dans le framework ?
+### Comment ça se passe dans le framework ?
 
 Dans le framework, nous allons créer des contrôleurs (dans App Controller)
 Ces contrôleurs "étendent" généralement la classe AbstractController du framework.
@@ -47,7 +47,7 @@ Exemple de pattern/wild card
 ``{postId}`` = expression régulière
 >bref, c'est une variable qu'on va retrouver dans la BDD grâce à l'ID de l'article souhaité
 
-###Ceci dit, en Symfony, où est donc le Front Controller ?
+### Ceci dit, en Symfony, où est donc le Front Controller ?
 Ce n'est assurément pas dans nos contrôleurs Symfony que nous allons mapper chaque URL,aller récupérer chaque information de la requête, et retourner une réponse. D'zilleurs on ne manipule pas la requête directement puisque ces "commandes" sont sous forme d'annotations, de commentaires.
 
 En fait, cette responsabilité est portée par un fichier qui est disponible dans le dossier public, au sein du fichier index.php.
@@ -57,7 +57,7 @@ La responsabilité d'être un Front Controller dans Symfony est portée par l'ob
 
 Cet objet a donc la responsabilité de gérer la requête et de retourner une réponse aux utilisateurs.
 
-##Comment Symphony retourne une réponse à l'utilisateur ?
+## Comment Symphony retourne une réponse à l'utilisateur ?
 *Symfony est un framework basé sur le processus HTTP requête/réponse*
 
-###Requêtes et réponses (HTTP)
+### Requêtes et réponses (HTTP)
