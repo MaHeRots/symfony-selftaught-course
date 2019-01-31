@@ -113,9 +113,7 @@ Ce "serveur" PHP retournerait la réponse HTTP suivante :
 - ``Date: Sat, 28 Jul 2018 02:14:33 GMT``
 - ``Server: Apache/2.2.17 (Unix)``
 - ``Content-Type: text/html``
-- ``<html>
-<body>Bonjour Zozor</body>
-</html>``
+- ``<html><body>Bonjour Zozor</body></html>``
 
 #### Requêtes & Réponses en symfony
 > CF ce que j'ai écrit en introooooooo, ne nous répétons paaaas !
