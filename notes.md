@@ -61,3 +61,93 @@ Cet objet a donc la responsabilité de gérer la requête et de retourner une r�
 *Symfony est un framework basé sur le processus HTTP requête/réponse*
 
 ### Requêtes et réponses (HTTP)
+
+#### Un utilisateur envoie une requête au serveur...
+ le rôle d'un serveur web est toujours de retourner une réponse à l'utilisateur
+
+ En "langage" HTTP, voici l'équivalent de la requête d'un utilisateur qui accéderait au site d'OpenClassrooms :
+
+``GET / HTTP/1.1`` : contient la méthode HTTP (ici "GET") ainsi que l’URL (ici "/")
+``Host: marie-helenerots.com`` : hôte est marie-helenerots.com
+``Accept: text/html`` : contient le type de contenu attendu, ici du HTML
+``User-Agent: Mozilla/5.0 (Macintosh)`` : informe le serveur du navigateur utilisé (ici, Mozilla Firefox sur Mac OSX).
+
+Il existe plusieurs méthodes HTTP pour accéder à une ressource, voici les plus importantes : **GET**, **POST**, **PUT** et **DELETE**.
+
+#### ... et le serveur retourne une réponses
+Une fois que le serveur sait exactement quelle ressource l'utilisateur/client souhaite et sous quelle forme, il peut retourner ce résultat sous forme de réponse HTTP.
+
+
+``HTTP/1.1 200 OK`` : indique le code de statut HTTP
+``Date: Sat, 28 Jul 2018 21:05:05 GMT``
+``Server: cloudfare``
+``Content-Type: text/html``
+``<html>
+ <!-- ... HTML de la page d'accueil -->
+</html>``
+
+ De très nombreux statuts existent, parmi les plus connus :
+- **200**, la page a été retournée sans erreur du serveur ;
+- **404**, le code HTTP pour une ressource qui n'a pas été retrouvée sur le serveur ;
+- **les codes 3XX**, qui signalent les redirections de ressources ;
+- **les codes 4XX**, qui signalent une erreur côté utilisateur/client ;
+- **les codes 5XX**, qui signalent une erreur côté serveur.
+
+#### Manipuler la couche HTTP en PHP
+PHP = langage de programmation serveur pour le web,
+Ex : le code suivant récupère des informations de la requête utilisateur et retourne une réponse au format HTML :
+
+``<?php
+
+// en utilisant l'url localhost?name=Zozor
+$name = $_GET['name'];
+
+header('Content-Type: text/html');
+echo '<html>';
+echo '<body>Bonjour '. $name . '</body>';
+echo '</html>'
+``
+
+Ce "serveur" PHP retournerait la réponse HTTP suivante :
+
+``Date: Sat, 28 Jul 2018 02:14:33 GMT``
+``Server: Apache/2.2.17 (Unix)``
+``Content-Type: text/html``
+``<html>
+<body>Bonjour Zozor</body>
+</html>``
+
+#### Requêtes & Réponses en symfony
+> CF ce que j'ai écrit en introooooooo, ne nous répétons paaaas !
+
+### Lier une URL à une abstraction
+Nous avons besoin d'un contrôleur "front" ou frontal : il est en charge de récupérer les infos de la requête et d'exécuter l'action correspondante qui retournera une réponse.
+
+Au plus simple, un contrôleur front pourrait être implémenté de cette façon :
+
+``<?php
+// index.php
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+
+$request = Request::createFromGlobals();
+$url = $request->getPathInfo();
+$response = new Response();
+
+switch($url) {
+    case '/':
+        $response->setContent('Accueil');
+        break;
+    case '/admin':
+        $response->setContent('Accès Espace Admin');
+        break;
+    default:
+        $response->setStatusCode(Response::HTTP_NOT_FOUND);
+}
+
+$response->send();``
+
+> Bref, il paraît que même si ça paraît très limité, Symfony fournit un contrôleur frontal beaucoup plus puissant et extensible
+
+#### La gestion du "routing" dans Symfony
+> Arrête de vouloir écrire Symfony avec "ph" au lieu de "f" ! Tu vas finir par t'en taper sur les doigts !
