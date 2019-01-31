@@ -7,8 +7,8 @@
 **PHP** = langage orienté serveur. Écoute la requête du client et leurs retourne une réponse
   Ex :
 ``$_GET ``
->Récupère les éléments passés à une URL
-Permet de construire une page HTML en fonction de la requête de l'utilisateur
+*Récupère les éléments passés à une URL
+Permet de construire une page HTML en fonction de la requête de l'utilisateur*
 
 
 ### Symfony
@@ -18,13 +18,13 @@ Permet de construire une page HTML en fonction de la requête de l'utilisateur
 Donne une abstraction de type objet permettant de manipuler tous les elmts reçus de la requête
   Ex :
 `` $request->get('name'!);``
-> permet de récupérer le paramètre 'name' passé dans l'URL de l'utilisateur
+*permet de récupérer le paramètre 'name' passé dans l'URL de l'utilisateur*
 
 - Response
 Construit une adresse Http valide et la retourne à l'utilisateur
   Ex :
 ``$reponse->setStatusCode(Response::HTTP_NOT_FOUND);``
->permet de définir qu'une page n'a pas été trouvée
+*permet de définir qu'une page n'a pas été trouvée*
 
 
 ### Comment ça se passe dans le framework ?
