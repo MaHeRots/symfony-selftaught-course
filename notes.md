@@ -100,11 +100,11 @@ Ex : le code suivant récupère des informations de la requête utilisateur et r
 ``<?php
 
 // en utilisant l'url localhost?name=Zozor
-$name = $_GET['name'];
+$name = $_GET['name']; \n
 
-header('Content-Type: text/html');
-echo '<html>';
-echo '<body>Bonjour '. $name . '</body>';
+header('Content-Type: text/html'); \n
+echo '<html>'; \n
+echo '<body>Bonjour '. $name . '</body>'; \n
 echo '</html>'
 ``
 
